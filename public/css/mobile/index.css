@@ -1,0 +1,8 @@
+*{padding:0;margin:0;}
+html,body{height:100%;overflow: hidden;}
+body{  -webkit-font-smoothing: antialiased;  -webkit-user-select: none;}
+
+#turnpage{height: 100%;position: relative;overflow: hidden; -webkit-transform: translate(0px, 0px,); transform: translate(0px, 0px);}
+#turnpage .pages{height:100%;width:100%;position: relative;}
+#turnpage .pages .page{height:100%;width:100%;position: relative;}
+#turnpage .pages .page .bg{height:100%;}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>minisky demo</title>
+	<meta name="format-detection" content="telephone=no">
+	<script>
+		(function(e){var t=e.document;var i=t.documentElement;var a=t.querySelector('meta[name="viewport"]');var n=0;var r=0;var o;if(a){console.warn("将根据已有的meta标签来设置缩放比例");var l=a.getAttribute("content").match(/initial\-scale=([\d\.]+)/);if(l){r=parseFloat(l[1]);n=parseInt(1/r)}}if(!n&&!r){var s=e.navigator.appVersion.match(/android/gi);var d=e.navigator.appVersion.match(/iphone/gi);var m=e.devicePixelRatio;if(d){if(m>=3&&(!n||n>=3)){n=3}else if(m>=2&&(!n||n>=2)){n=2}else{n=1}}else{n=1}r=1/n}i.setAttribute("data-dpr",n);if(!a){a=t.createElement("meta");a.setAttribute("name","viewport");a.setAttribute("content","initial-scale="+r+", maximum-scale="+r+", minimum-scale="+r+", user-scalable=no");if(i.firstElementChild){i.firstElementChild.appendChild(a)}else{var c=t.createElement("div");c.appendChild(a);t.write(c.innerHTML)}}function f(){var t=i.getBoundingClientRect().width;if(t/n>540){t=540*n}var a=t/10;i.style.fontSize=a+"px";e.rem=a}e.addEventListener("resize",function(){clearTimeout(o);o=setTimeout(f,300)},false);e.addEventListener("pageshow",function(e){if(e.persisted){clearTimeout(o);o=setTimeout(f,300)}},false);if(t.readyState==="complete"){t.body.style.fontSize=16*n+"px"}else{t.addEventListener("DOMContentLoaded",function(e){t.body.style.fontSize=16*n+"px"},false)}f()})(window);
+	</script>
+	<link rel="styleSheet" href="./styleSheet1.css">
+	<style>
+	[data-dpr="1"] .fs_24{font-size:12px}[data-dpr="1"] .fs_26{font-size:13px}[data-dpr="1"] .fs_28{font-size:14px}[data-dpr="1"] .fs_30{font-size:15px}[data-dpr="1"] .fs_32{font-size:16px}[data-dpr="1"] .fs_34{font-size:17px}[data-dpr="1"] .fs_36{font-size:18px}[data-dpr="2"] .fs_24{font-size:24px}[data-dpr="2"] .fs_26{font-size:26px}[data-dpr="2"] .fs_28{font-size:28px}[data-dpr="2"] .fs_30{font-size:30px}[data-dpr="2"] .fs_32{font-size:32px}[data-dpr="2"] .fs_34{font-size:34px}[data-dpr="2"] .fs_36{font-size:36px}[data-dpr="3"] .fs_24{font-size:36px}[data-dpr="3"] .fs_26{font-size:39px}[data-dpr="3"] .fs_28{font-size:42px}[data-dpr="3"] .fs_30{font-size:45px}[data-dpr="3"] .fs_32{font-size:48px}[data-dpr="3"] .fs_34{font-size:51px}[data-dpr="3"] .fs_36{font-size:54px}*{margin:0;padding:0;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;box-sizing:border-box}body,html{width:100%;font-family:"Helvetica Neue",Helvetica,STHeiTi,sans-serif}i,img,span{vertical-align:middle}i{font-style:normal}a{display:none}body{background-color:#edf2f5}header{position:relative;background-color:#fff;padding:.4rem;display:-webkit-box;display:-webkit-flex;display:flex}header .head_icon img{width:2.666rem;height:2.66rem;border-radius:.2rem;overflow:hidden}header .head_content{width:100%;-webkit-box-flex:1;-webkit-flex:1;flex:1;padding-left:.4rem}header .head_title{margin-top:.173rem}header .head_title span{color:#0e0e0e;display:inline-block}header .head_title i{display:inline-block;border:1px solid #ff5959;color:#ff5959;margin-left:.2rem;line-height:1.1em}header .head_appInfo,header .head_appstar{margin-top:.1rem}header .head_appInfo{color:#8b8b8b}header .head_appInfo span{margin-right:.453rem}header .head_appstar span{display:inline-block;width:.334rem;height:.32rem;background-image:url(star.png);background-repeat:no-repeat;background-position:center;background-size:100%;margin-right:.2rem}section{padding:.373rem .32rem;margin-bottom:1.33rem}section .section_appdespcript{background:#fff;padding:.266rem 0 .266rem .186rem}.section_appdespcript .app_showImg{height:5.813rem;overflow:hidden}.section_appdespcript .app_showImg .app_showImg_list{box-sizing:content-box;height:100%;padding-bottom:.4rem;white-space:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}.section_appdespcript .app_showImg .app_showImg_list::-webkit-scrollbar{display:none}.section_appdespcript .app_showImg .app_showImg_list a{display:inline}.section_appdespcript .app_showImg .app_showImg_list img{width:3.546rem;height:5.813rem}.section_appdespcript .app_textdsp{color:#787878;text-align:justify;padding:.186rem .186rem 0 0;line-height:1.5em}.app_tags{background-color:#fff;padding:.373rem .186rem;margin-top:.373rem}.app_tags .app_tagshead{color:#0e0e0e}.app_tags .app_tagslist{margin-top:.293rem;color:#868686;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between}.app_tags .app_tagslist i{display:block;text-align:center;line-height:.666rem;width:2.1rem;border:1px solid #e8e8e8;border-radius:2px}.app_tags .app_tagslist i:last-child{margin:0}.sq_fixed{position:fixed;left:0;bottom:0;height:1.33rem;width:100%;background-color:#fff;display:-webkit-box;display:-webkit-flex;display:flex;z-index:10}.sq_fixed .sq_fixed_download{display:block;width:3.86rem;line-height:1.33rem;background-color:#20ce5a;color:#fff;text-align:center;text-decoration:none}.sq_fixed .sq_fixed_text{-webkit-box-flex:1;-webkit-flex:1;flex:1;color:#0e0e0e;line-height:1.33rem;text-align:center}#mask{visibility:hidden;height:100%;width:100%;position:fixed;left:0;top:0;background:rgba(0,0,0,.9);z-index:11}#mask .page{height:100%;text-align:center;position:relative;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-pack:center;-webkit-box-align:center;-webkit-justify-content:center;justify-content:center;-webkit-align-items:center;align-items:center}#mask .page img{max-width:10rem;max-height:100%;display:block}
+	</style>
+	<link rel="styleSheet" href="./styleSheet2.css">
+</head>
+<body>
+	<header>
+		<div class="head_icon">
+			<img src="http://a3.mzstatic.com/us/r30/Purple62/v4/f6/30/21/f630217d-bae4-7ce2-2365-cf0754b8b944/icon175x175.jpeg">
+		</div>
+		<div class="head_content">
+			<div class="head_title"><span class="fs_36">微博</span><i class="fs_24">反正不是官方</i></div>
+			<div class="head_appInfo fs_28">
+				<span>5分</span><span>1亿次下载</span><span>160 MB</span>
+			</div>
+			<div class="head_appstar">
+				<span></span><span></span><span></span><span></span><span></span>
+			</div>
+		</div>
+	</header>
+	<section>
+		<div class="section_appdespcript">
+			<div class="app_showImg" id="app_showImg">
+				<div class="app_showImg_list">
+					<a href="javascript:void(0);"><img src="http://a3.mzstatic.com/us/r30/Purple42/v4/0f/9e/ec/0f9eeccb-2d95-7ab9-faea-a7ab5ed5407c/screen696x696.jpeg" alt="" data-index="0"></a>
+					<a href="javascript:void(0);"><img src="http://a2.mzstatic.com/us/r30/Purple71/v4/f7/e8/2c/f7e82c93-a129-cc7f-8383-ed71f07e0b9a/screen696x696.jpeg" alt="" data-index="1"></a>
+					<a href="javascript:void(0);"><img src="http://a5.mzstatic.com/us/r30/Purple71/v4/0b/ae/1a/0bae1a93-4852-36f3-2242-8536a8881e15/screen696x696.jpeg" alt="" data-index="2"></a>
+					<a href="javascript:void(0);"><img src="http://a3.mzstatic.com/us/r30/Purple71/v4/a0/ad/e2/a0ade2a3-9a39-92b2-5095-ed9905d1f7e2/screen696x696.jpeg" alt="" data-index="3"></a>
+					<a href="javascript:void(0);"><img src="http://a2.mzstatic.com/us/r30/Purple62/v4/ac/64/ce/ac64ceae-78d3-c42e-39b2-4945a962c3ea/screen696x696.jpeg" alt="" data-index="3"></a>
+				</div>
+			</div>
+			<div class="fs_26 app_textdsp ">
+				
+内容提要
+微博，随时随地发现新鲜事！
+微博带你欣赏世界上每一个精彩瞬间，了解每一个幕后故事。分享你想表达的，让全世界都能听到你的心声。
+
+在微博：
+-你能看到最新，最全面的资讯内容。无论是官方发布的新闻还是草根爆料的八卦。
+-第一时间了解关注人的最新动态，无论是体育、电影、财经、还是吃喝玩乐。
+-想说点啥？发送文字、照片、视频，随心所欲地创作，轻松自在地表达。
+
+首页信息流：
+查看大图、GIF动画、视频、音频，查看好友微博及分组微博；
+消息：
+及时收到@、评论和私信，还可发送语音、表情、图片及位置信息，私密分享也精彩。
+发现广场：
+在这里可以查看热门内容，还有购物、电影、听歌、运动，旅游等频道。你的生活，也许因为微博而不同。
+微博运动：
+通过接入Apple Watch 及iPhone健康，查看运动信息，健康数据。与别人一拼高低。
+微博雷达：
+探索附近的好友和优惠，参与电视节目的互动好玩又实惠。
+微博会员：
+设置卡片背景，主题皮肤、封面，背景音乐和微博来源。让你个性十足，与众不同。
+微博支付：
+买东西，发红包，生活缴费。支持各种支付场景，让你生活，购物更轻松。
+			</div>
+		</div>
+		<div class="app_tags">
+			<div class="app_tagshead fs_30">应用标签</div>
+			<div class="app_tagslist fs_28">
+				<i>同城交友</i><i>本地新闻</i><i>同城爆料</i><i>同城互助</i>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="sq_fixed">
+			<div class="sq_fixed_text fs_30">仅仅是个demo,不要当真</div>
+			<a class="sq_fixed_download fs_32" href="javascript:;" onclick="alert('此页面仅为测试用，图片来自微博app下载')">立即下载</a>
+		</div>
+	</footer>
+
+	<div id="mask">
+		<ul class="pagelist" id="pagelist">
+			<li class="page">
+				<img src="http://a3.mzstatic.com/us/r30/Purple42/v4/0f/9e/ec/0f9eeccb-2d95-7ab9-faea-a7ab5ed5407c/screen696x696.jpeg" alt="">
+			</li>
+			<li class="page">
+				<img src="http://a2.mzstatic.com/us/r30/Purple71/v4/f7/e8/2c/f7e82c93-a129-cc7f-8383-ed71f07e0b9a/screen696x696.jpeg" alt="">
+			</li>
+			<li class="page">
+				<img src="http://a5.mzstatic.com/us/r30/Purple71/v4/0b/ae/1a/0bae1a93-4852-36f3-2242-8536a8881e15/screen696x696.jpeg" alt="">
+			</li>
+			<li class="page">
+				<img src="http://a3.mzstatic.com/us/r30/Purple71/v4/a0/ad/e2/a0ade2a3-9a39-92b2-5095-ed9905d1f7e2/screen696x696.jpeg" alt="">
+			</li>
+			<li class="page">
+				<img src="http://a2.mzstatic.com/us/r30/Purple62/v4/ac/64/ce/ac64ceae-78d3-c42e-39b2-4945a962c3ea/screen696x696.jpeg" alt="">
+			</li>
+		</ul>
+	</div>
+	<script src="turnpage.min.js"></script>
+	<script>
+
+		var page={
+			init:function(){
+				this.$app_showImg = document.querySelector("#app_showImg");
+				this.$mask = document.querySelector("#mask");
+				this.$pagelist = document.querySelector("#pagelist");
+				this.initmask();
+				this.initEvent();
+			},
+			initEvent:function(){
+				var self =this;
+				this.$app_showImg.addEventListener("click",function(e){
+					if("img" == e.target.tagName.toLowerCase()){
+						var target = e.target;
+						var index = target.getAttribute("data-index");
+						self.tp.moveTo(parseInt(index));
+						self.$pagelist.style.display = "block";
+						self.$mask.style.visibility = "visible";
+					}
+				});
+				this.$mask.addEventListener("click",function(e){
+					self.$pagelist.style.display = "none";
+					self.$mask.style.visibility = "hidden";
+				},true);
+			},
+			initmask:function(){
+				this.tp=this.$pagelist.turnpage({
+					page: '.page',
+					dir:'h',
+					duration: 300,
+					drag:true,
+			        change: function(data) {},
+			        beforeChange: function(data) {},
+			        afterChange: function(data) {},
+			        orientationchange: function(orientation) {}
+				});
+			}
+		}
+		page.init();
+		var styletool = styleSheets();
+
+		function styleSheets(){
+	    	var sheets = document.styleSheets, //获得页面中所有样式
+	    	    isIE = document.addEventListener ? false : true;
+
+	    	var insertRule = function(classStr){
+	    		var lastsheet = sheets[sheets.length -1];
+	    		lastsheet[isIE ? 'addRule' : 'insertRule'](classStr,lastsheet[isIE ? 'rules' : 'cssRules'].length);
+	    	} 
+	    	var deleteRule = function(selector){
+	    		var targetInfo; //存储目标class信息
+			  	for(var i=0;i<sheets.length;i++){
+		    	var rs = sheets[i][isIE ? 'rules' : 'cssRules'] || [];//跨域引入的时候，取不到，会为空，所以默认为一个数组
+		    		for(var j=0;j<rs.length;j++){
+				      	if(rs[j].selectorText.replace(/\s*/ig,'') == selector.replace(/\s*/ig,'')){//由于浏览器解析出的样式格式和自己书写的稍微有点差异，所以清除空格作比对
+				        	targetInfo = {parentIndex:i,curIndex:j}
+				        	break;
+				      	}
+				    }
+			  	}
+			  	console.log(targetInfo);
+			  	if(targetInfo){
+			  		sheets[targetInfo.parentIndex][isIE ? 'removeRule' : 'deleteRule'](targetInfo.curIndex);
+			  	}
+	    	}
+
+	    	return {
+	    		insertRule:insertRule,
+	    		deleteRule:deleteRule
+	    	}
+	    }
+
+	</script>
+</body>
+</html>

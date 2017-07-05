@@ -1,0 +1,18 @@
+#Sky_chat{position:fixed;right:5px;bottom:5px;z-index: 1000;}
+#Sky_chat .chat_mini{position:absolute;top:-40px;right:0;width: 288px;height: 40px;line-height:40px;text-align:center;color:#fff;border-radius:4px;font-size:14px;background-color:#4A4A4A;box-shadow: -3px -2px 8px -1px rgba(0,0,0,0.5);cursor: pointer;}
+#Sky_chat .chat_window{display:none;position:absolute;bottom:0;right:0;width: 560px;height: 400px;background-color:#4A4A4A;color:#fff;border-radius:4px;font-size:14px;box-shadow: 0px -2px 8px -1px rgba(0,0,0,0.5);}
+#Sky_chat .chat_window .chat_title{position:absolute;top:0;left:10px;color:#d2c9c9;line-height: 40px;}
+#Sky_chat .chat_message{height:270px;padding:40px 10px 10px 10px;}
+#Sky_chat .chat_message .chat_message_listbox{overflow-y: auto;}
+#Sky_chat .chat_message .chat_message_listbox,#Sky_chat .chat_input .chat_inputbox{height:100%;width:100%;background-color: #434242;border-radius:4px;}
+#Sky_chat .chat_message .chat_message_listbox .chat_message_listrow.me{ text-align: right; }
+#Sky_chat .chat_message .chat_message_listbox .chat_message_listrow.tips{text-align: center;}
+#Sky_chat .chat_message .chat_message_listbox .chat_message_listrow .chatpeople_msgbox{padding:5px 20px;}
+#Sky_chat .chat_message .chat_message_listbox .chat_message_listrow .chatpeople_msgbox .chatpeople_msg{min-height:16px;min-width:20px;display:inline-block;padding:3px;background:#504f4d;border-radius:4px;}
+#Sky_chat .chat_message .chat_message_listbox .chat_message_listrow.tips .chatpeople_msgbox .chatpeople_msg{background:#9c9586;font-size:14px;}
+
+#Sky_chat .chat_input{height:60px;padding:10px;overflow:hidden;}
+#Sky_chat .chat_input .chat_inputbox{width:450px;float:left;}
+#Sky_chat .chat_input textarea{height:100%;width:100%;border-radius:4px;}
+#Sky_chat .chat_input  .msg_send{width:70px;height:100%;line-height:60px;text-align:center;background:#434242;border-radius:4px;cursor:pointer;float:right;color:#fff;}
+#Sky_chat .chat_input  .msg_send:hover{background:#353333;}

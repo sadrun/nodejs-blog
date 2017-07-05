@@ -1,0 +1,45 @@
+	</div>
+	<div class="footer">
+		<div class="device">
+			<ul>
+				<li>
+					<a href="#">
+						<i class="device-iphone"></i>
+						<span>iphone</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="device-ipad"></i>
+						<span>ipad</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="device-android"></i>
+						<span>android</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="device-wp"></i>
+						<span>WPhone</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="copyright">
+			<p>Copyright © 2015 Niu.</p>
+			<p>本网站纯属个人Nodejs学习测试用,已忽略IE8-。学习交流邮箱:1264593211@qq.com</p>
+		</div>
+	</div>
+	<script>
+		var $li = document.querySelectorAll('li[data-link]');
+		Array.prototype.forEach.call($li,function(item){
+			Sky.bind(item,"click",function(){
+				location.href = item.getAttribute("data-link");
+			})
+		});
+	</script>
+</body>
+</html>

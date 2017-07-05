@@ -1,0 +1,4 @@
+/* 测试用css文件 */
+
+.testdemo .main a{color:red;}
+.testdemo .main a:nth-child(2){color:blue;}

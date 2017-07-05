@@ -1,0 +1,52 @@
+<%- include header %>
+	<link rel="stylesheet" href="/css/chat.css">
+	<div class="personInfo">
+		<a href="#"><img src="./images/logo.png" alt=""></a>
+		<h3>HELLO</h3>
+		<h1>my name is <span>暮歌</span> </h1>
+		<p>I'm a Front end Engineer Work in HangZhou. </p>				 
+		<ul class="social-icons">
+			<li id='min-qq'><a href="http://wpa.qq.com/msgrd?v=3&uin=1264593211&site=qq&menu=yes" target='_blank'><i class="qq"></i></a></li>
+			<li id='min-sina'><a href="http://weibo.com/u/2017306257" target='_blank'><i class="sina"></i></a></li>
+		</ul>
+		<ul class="details">
+			<li>Age     :     <a href="#">25</a></li>
+			<li>graduated     :     <a href="#">ZJUT</a></li>
+			<li>Working at     :     <a href="#">secret</a></li>
+		</ul>
+	</div>
+	<div class="other">
+
+	</div>
+	<div id="Sky_chat">
+		<div class="chat_mini">点击加入聊天室</div>
+		<div class="chat_window">
+			<div class="chat_message">
+				<div class="chat_message_listbox">
+					<ul class="chat_message_list"></ul>
+				</div>
+			</div>
+			<div class="chat_input">
+				<div class="chat_inputbox">
+					<textarea name="" id="send_value" cols="30" rows="4"></textarea>
+				</div>
+				<div id="msg_send" class="msg_send">发送</div>
+			</div>
+			<div class="chat_title">--人在线</div>
+		</div>
+	</div>
+	<script>
+		Sky.loadScript({
+			url: './js/mask.js',
+            error: 1  
+		});
+		Sky.loadScript({
+			url : './js/pathAnimate.js',
+            error : 1,
+            onload : function(){
+            } 
+		});
+	</script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/js/chat.js"></script>
+<%- include footer %>

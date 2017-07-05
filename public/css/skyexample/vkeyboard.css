@@ -1,0 +1,8 @@
+html{font-family: 'Microsoft YaHei';overflow-x:hidden;}
+#main{width: 1162px;height: 430px;padding - left: 10px; padding - top: 10px;margin: 40px auto 0;position: relative;}
+#main > div{height: auto;overflow: hidden;}
+span[keyCode]{display: block;height: 60px;line-height: 60px;text-align: center;border: 1px solid#ccc;margin-bottom: 10px;float: left;margin-right: 10px; cursor:pointer;color: #fff;font-size: 20px;}
+span[keyCode]{box-shadow: 1px 1px 4px 0px#cfcfcf; border-radius: 5px; position: relative; overflow: visible;}
+.active{box-shadow: 0 0 0#fff !important; color: #fff;}
+.ball{position: absolute; min-width: 30px; width:60px; height: 60px; text-align: center; line-height: 60px; color: #fff; border-radius: 5px; background-color: #F53434;}
+.w60{width: 60px;}.w80{width: 80px;}.w100{width: 100px;}.w120{width: 120px;}.w140{width: 140px;}.w150{width: 150px;}.w405{width: 405px;}#main div >.h30{height: 30px; width:65px; line-height: 30px;}

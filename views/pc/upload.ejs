@@ -1,0 +1,112 @@
+<%- include header %>
+<style>
+	.upload{text-align: center;padding-top: 80px;}
+	.btn{position: relative;
+	    display: inline-block;
+	    overflow: hidden;
+	    padding: 0 15px;
+	    background-color: #4a4a4a;
+	    border-radius: 4px;
+	    height: 40px;
+	    line-height: 40px;
+	    color: #fff;
+	    cursor: pointer;
+	    box-shadow: 0 0 17px rgba(0,0,0,.5),0 0 10px rgba(255,255,255,.2) inset;}
+	    .upload input{position:absolute; left:0; top:0; height:100%; opacity:0; filter:alpha(opacity=0);    cursor: pointer;
+    }
+	.imgbox {margin:10px 0;}
+	.imgbox span{position:relative;display:inline-block;height:150px;text-align:left;}
+	.imgbox span i{display:inline-block;width:100%;height:100%;position:absolute;top:0;left:0;background-color:rgba(0,0,0,.4);}
+	.imgbox span i a{display:inline-block;height:10px;width:100%;position:absolute;top:0;bottom:0;left:0;margin:auto;    background-color: rgba(0,0,0,.5);border-radius: 5px;overflow: hidden;}
+	.imgbox span i em{display:inline-block;height:100%;width:0;background-color: rgba(255,255,255,.5);vertical-align: top;}
+	.imgbox img{height:100%;}
+</style>
+<div class="upload">
+	<div class="test1">
+		<form method='post' action='/upload' enctype='multipart/form-data' id="form">
+			<span class="filebox btn">选择图片<input type="file" id="fud" name='fileupload' accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"/></span>
+		</form>
+		<div class="imgbox">
+			<span></span>
+		</div>
+		<div id="ajaxsubmit" class=" btn">上传</div>
+	</div>
+</div>
+<script src='/js/jquery.js'></script>
+<script>
+	
+	$("#fud").change(function(e){
+		var file = $(this)[0].files[0];
+		var src='';
+		/*if(window.URL && window.URL.createObjectURL){
+			src = window.URL.createObjectURL(file);
+		}
+		$('.imgbox').html('<img src="'+src+'" alt="">');*/
+	 	var reader = new FileReader();
+      	reader.onload = function(evt){
+      		src = evt.target.result;
+      		$('.imgbox span').html('<img src="'+src+'" alt=""><i class="mask"><a href="javascript:void(0);"><em class="progress"></em></a></i>');
+      	}
+      	reader.readAsDataURL(file);
+	});
+	$("#ajaxsubmit").click(function(){
+		var $progress =$(".progress");
+        var data = new FormData($('#form')[0]);  
+        $ajax(data,$progress);
+        //ajax(data,$progress);
+
+    });
+    function ajax(data,$progress){
+    	var xhr = new XMLHttpRequest();
+		xhr.open("POST", "/upload");
+		if(xhr.upload) {
+　　　　　　xhr.upload.addEventListener("progress" , function(evt){
+				var loaded = evt.loaded;
+				var tot = evt.total;
+				var per = Math.floor(100*loaded/tot)+'%';
+				$progress.css('width',per)
+				console.log(loaded+"和"+tot);
+			}, false);
+　　　　}
+		xhr.onreadystatechange = function() {
+	       if (xhr.readyState != 4) return;
+	       if (xhr.status != 200 && xhr.status != 304) {
+	           alert('HTTP error ' + xhr.status);
+	            return;
+	        }
+	    }
+		xhr.send(data);
+    }
+    function $ajax(data,$progress){
+    	$.ajax({  
+            url: '/upload',  
+            type: 'POST',  
+            data: data,   
+            processData: false,  
+            contentType: false,
+            success:function(res){
+            	$('.imgbox img').attr('src',res.url);
+            	$('.mask').remove();
+              console.log(res)
+            },
+            xhr: function(){
+	　　　　　　var xhr = $.ajaxSettings.xhr();
+	　　　　　　if(xhr.upload) {
+	　　　　　　　　xhr.upload.addEventListener("progress" , function(evt){
+						var loaded = evt.loaded;
+   						var tot = evt.total;
+   						var per = Math.floor(100*loaded/tot)+'%';
+   						$progress.css('width',per)
+						console.log(loaded+"和"+tot);
+					}, false);
+	　　　　　　　　return xhr;
+	　　　　　　}
+	　　　　},
+            error:function(e){
+            	console.log(1);
+              console.log(e);
+            }
+        })
+    }
+</script>
+<%- include footer %>

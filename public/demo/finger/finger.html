@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>手势demo</title>
+	<link rel="stylesheet" type="text/css" href="images/bg.jpg">
+	<link rel="stylesheet" type="text/css" href="images/demo.jpg">
+	<style>
+		*{margin:0;padding:0;-webkit-tap-highlight-color: transparent;-webkit-touch-callout: none;-webkit-user-select: none;}
+		html,body{height:100%;}
+		html{font: 14px / 1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;}
+		body{opacity:0;background: url(images/bg.jpg) no-repeat fixed center;background-size:cover;-ms-transition: all 0.7s .1s;-webkit-transition: all 0.7s .1s;transition: all 0.7s .1s;text-align: center;}
+		body.show{opacity:1;}
+		img{vertical-align: middle;}
+		
+		.head{position:fixed;left:0;top:0;width:100%;line-height: 3em;background-color:rgba(0,0,0,.7);color: #fff;text-align: left;font-size: 1.2em;text-indent: 1em;z-index: 9999;}
+		.demo-list{margin-top:3em;}
+		.demo-list .list-row{padding:1em 0;border-bottom: 1px solid #eee;    color: #3e3939;font-size: 1.2em;}
+		.demo-list .list-row img{width:160px;border-radius: 4px;}
+		.demo-list .list-row >div span{color:#fff;font-size:0.8em}
+		
+		.longTapbox,.tapbox{width:160px;margin:0 auto;position: relative;}
+		.longTapbox-active,.tapbox-active{background-color: rgba(70, 70, 70, 0.8);background-image:url(images/yes.png);background-size:40px;background-repeat:no-repeat;background-position:center;border-radius:4px;position: absolute;top: 0;: 0;width: 160px;height: 100%;display: none;}
+		[data-type="doubleTap"]{ -ms-transition: transform 0.5s;-webkit-transition: transform 0.5s; transition: transform 0.5s; }
+		[data-type="doubleTap"].scale{-ms-transform: scale(1.3) translateZ(0px);-webkit-transform: scale(1.3) translateZ(0px);transform: scale(1.3) translateZ(0px);}
+		
+		.show-view{width:160px;height:160px;font-size:0;margin:0 auto;position: relative;overflow: hidden;border-radius:4px;}
+		.show-view .swipebox{width:480px;}
+		.show-view .show-view-nav{position:absolute;bottom:10px;right:10px;}
+		.show-view .show-view-nav i{display:inline-block;margin-right:5px;width:10px;height:10px;border-radius: 50%;border:1px solid #808080;background: rgba(0,0,0,.7);}
+		.show-view .show-view-nav i.active{background: rgba(14, 165, 67, .7);}
+		.show{display:block;}
+	</style>
+</head>
+<body class="">
+	<div class="wrap">
+		<div class="head">手势单例demo</div>
+		<div class="demo-list">
+			<div class="list-row">
+				<div>长按(longTap)<br><span>手指长按图片</span></div>
+				<div>
+					<div class="showImg longTapbox" data-type="longTap">
+						<img src="images/demo.jpg" alt="示例图" class="showImg" >
+						<div class="longTapbox-active"></div>
+					</div>
+				</div>
+			</div>
+			<div class="list-row">
+				<div>点击(singleTap)<br><span>手指点击图片</span></div>
+				<div>
+					<div class="showImg tapbox" data-type="singleTap">
+						<img src="images/demo.jpg" alt="示例图" >
+						<div class="tapbox-active "></div>
+					</div>
+				</div>
+			</div>
+			<div class="list-row">
+				<div>滑动(swipe)<br><span>手指左右滑动图片</span></div>
+				<div>
+					<div class="show-view">
+						<div class="showImg swipebox" data-type="swipe">
+							<img src="images/demo.jpg" alt="示例图" >
+							<img src="images/demo2.jpg" alt="示例图" >
+							<img src="images/demo3.jpg" alt="示例图" >
+						</div>
+						<div class="show-view-nav">
+							<i class="active" data-index="1"></i><i data-index="2"></i><i data-index="3"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="list-row">
+				<div>双击(doubleTap)<br><span>用一支手指双击图片</span></div>
+				<div><img src="images/demo.jpg" alt="示例图" class="showImg" data-type="doubleTap"> </div>
+			</div>
+			<div class="list-row">
+				<div>旋转(rotate)<br><span>用两根手指旋转图片</span></div>
+				<div><img src="images/demo.jpg" alt="示例图" class="showImg" data-type="rotate"> </div>
+			</div>
+			<div class="list-row">
+				<div>放大／缩小（scale）<br><span>用两根手指挤拉图片</span></div>
+				<div><img src="images/demo.jpg" alt="示例图" class="showImg" data-type="pinch"> </div>
+			</div>
+			<div class="list-row">
+				<div>旋转&缩放（rotate&scale）<br><span>用两根手指挤拉x旋转图片</span></div>
+				<div><img src="images/demo.jpg" alt="示例图" class="showImg" data-type="pinchAndRotate"> </div>
+			</div>
+			<div class="list-row">
+				<div>拖动（drop）<br><span>按住图片拖动</span></div>
+				<div><img src="images/demo.jpg" alt="示例图" class="showImg" data-type="pressMove"> </div>
+			</div>
+		</div>
+	</div>
+	<script src="finger.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+	  	var prefix = (function(){
+	  		var preStyle = document.createElement('div').style;
+	  		var preNames = ["", "webkit", "Moz", "ms", "O"],
+	  			transform,
+	  			i =preNames.length;
+
+	  		while(i--){
+	  			if(preNames[i]){
+	  				transform = preNames[i] + "Transform";
+	  			}else{
+	  				transform = "transform";
+	  			}
+	  			
+	  			if (transform in preStyle) return preNames[i];
+	  		}
+	  	})();
+
+		var page ={
+			init:function(){
+				var self =this;
+
+				self.doms={
+					imgList :document.querySelectorAll(".showImg")
+				};
+				self.prefix = (function(pre){
+					if(pre){
+						return '-'+pre+'-';
+					}else{
+						return pre;
+					}
+				})(prefix);
+				self.jsPrefixT = (function(pre){
+					if(pre){
+						return 't';
+					}else{
+						return pre+'T';
+					}
+				})(prefix);
+				self.showbg();
+				self.bindEvent();
+			},
+			bindEvent:function(){
+				var self =this;
+
+				[].forEach.call(self.doms.imgList,function(dom){
+					var type = dom.getAttribute('data-type');
+					switch(type){
+						case 'longTap' : 
+							self.longTap(dom);
+							break;
+						case 'singleTap' :
+							self.singleTap(dom);
+							break;
+						case 'doubleTap' :
+							self.doubleTap(dom);
+							break;
+						case 'swipe' :
+							self.swipe(dom);
+							break;	
+						case 'rotate' :
+							self.rotate(dom);
+							break;
+						case 'pinch' :
+							self.pinch(dom);
+							break;
+						case 'pinchAndRotate' :
+							self.pinchAndRotate(dom);
+							break;
+						case 'pressMove' :
+							self.pressMove(dom);
+							break;
+					}
+				})
+			},
+			longTap:function(dom){
+				dom.finger({
+					longTap:function(e){
+						this.querySelector(".longTapbox-active").classList.toggle('show');
+					}
+				});
+			},
+			singleTap:function(dom){
+				dom.finger({
+					singleTap:function(e){
+						this.querySelector(".tapbox-active").classList.toggle('show');
+					}
+				});
+			},
+			doubleTap:function(dom){
+				var self = this;
+				dom.finger({
+					doubleTap:function(e){
+						this.classList.toggle('scale');
+					}
+				});
+			},
+			swipe:function(dom){
+				var self = this;
+				var posX = 0;
+				var index =1;
+				var nav = document.querySelector('.show-view-nav');
+				dom.finger({
+					swipe:function(e){
+						if(e.direction =='Left' && posX != -320){
+							posX -= 160;
+							index +=1;
+						}else if(e.direction =='Right' && posX != 0){
+							posX += 160;
+							index -=1;
+						}
+						var style=self.prefix+'transform:translate('+posX+'px,0px) translateZ(0px);' +self.prefix+'transition:transform .6s;'
+						this.style.cssText = style;
+						[].forEach.call(nav.querySelectorAll('i[data-index]'),function(dom){
+							if(dom.getAttribute('data-index') == index){
+								dom.classList.add('active');
+							}else{
+								dom.classList.remove('active');
+							}
+						})					
+					}
+				});
+			},
+			rotate:function(dom){
+				var self = this;
+				var angle = 0;
+				dom.finger({
+					rotate:function(e){
+						angle += e.angle;
+						var style=self.prefix+'transform:rotate('+angle+'deg) translateZ(0px);'
+						this.style.cssText = style;
+					}
+				});
+			},
+			pinch:function(dom){
+				var self = this;
+				var scale =1;
+				var initScale;
+				dom.finger({
+					multipointStart:function(e){
+						initScale = scale;
+					},
+					pinch:function(e){
+						scale = initScale*e.scale;
+						var style=self.prefix+'transform:scale('+scale+','+scale+') translateZ(0px);'
+						this.style.cssText = style;
+					}
+				});
+			},
+			pinchAndRotate:function(dom){
+				var self = this;
+				var angle = 0;
+				var scale = 1;
+				var initScale;
+				dom.finger({
+					multipointStart:function(e){
+						initScale = scale;
+					},
+					pinch:function(e){
+						scale = initScale*e.scale;
+						this.style[self.jsPrefixT+'ransform'] = 'scale('+scale+','+scale+')  rotate('+angle+'deg) translateZ(0px) ';
+					},
+					rotate:function(e){
+						angle += e.angle;
+						this.style[self.jsPrefixT+'ransform'] = 'scale('+scale+','+scale+')  rotate('+angle+'deg) translateZ(0px) ';
+					}
+				});
+			},
+			pressMove:function(dom){
+				var self = this;
+				var posX=0,posY=0;
+				dom.finger({
+					pressMove:function(e){
+						posX+=e.deltaX;
+						posY+=e.deltaY;
+						var style=self.prefix+'transform:translate('+posX+'px,'+posY+'px) translateZ(0px);'
+						this.style.cssText = style;
+					}
+				});
+			},
+			showbg:function(){
+				setTimeout(function(){
+					document.body.classList.add("show");
+				}, 10);
+			},
+
+		};
+
+		if (document.readyState === 'complete') {
+	        page.init();
+	    } else {
+	        document.addEventListener('DOMContentLoaded', function(e) {
+	            page.init();
+	        }, false);
+	    }
+	</script>
+</body>
+</html>
